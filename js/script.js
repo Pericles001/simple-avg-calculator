@@ -5,23 +5,23 @@
 const dataset = [
   {
     city: "Amsterdam",
-    temperature: -6.7,
+    temperature: -6,
   },
   {
     city: "London",
-    temperature: 3.7,
+    temperature: 3,
   },
   {
     city: "Madrid",
-    temperature: 10.5,
+    temperature: 10,
   },
   {
     city: "New York",
-    temperature: 14.5,
+    temperature: 14,
   },
   {
     city: "Tokyo",
-    temperature: 7.5,
+    temperature: 7,
   },
 ];
 
@@ -55,6 +55,28 @@ for (let i = 0; i < dataset.length; i++) {
       }
       const average = sum / count;
       const averageElement = document.getElementById("avg_even");
-      averageElement.innerHTML = `<span>Moyenne: ${average.value}</span>`;
+      averageElement.innerHTML = `<span>Moyenne des nombres paires: ${average}</span>`;
       console.log(average);
-    })()
+    })();
+
+    /**
+     * Method to calculate min and max temperature in dataset
+     */
+    (function minMax(){
+      let min = dataset[0].temperature;
+      let max = dataset[0].temperature;
+      for (let i = 0; i < dataset.length; i++) {
+        if (dataset[i].temperature < min) {
+          min = dataset[i].temperature;
+        }
+        if (dataset[i].temperature > max) {
+          max = dataset[i].temperature;
+        }
+      }
+      const minElement = document.getElementById("min");
+      const maxElement = document.getElementById("max");
+      minElement.innerHTML = `<span>Température minimale: ${min}</span>`;
+      maxElement.innerHTML = `<span>Température maximale: ${max}</span>`;
+      console.log(min);
+      console.log(max);
+    })();
